@@ -97,7 +97,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :libvirt do |v|
     v.memory = VM_MEMORY
   end
-
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+  end
   # add proxy configuration from host env - optional
   if Vagrant.has_plugin?("vagrant-proxyconf")
     ui.info "Getting Proxy Configuration from Host..."
